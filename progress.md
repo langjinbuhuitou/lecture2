@@ -21,8 +21,8 @@
 3. 写 practice.dart：空安全改写、实验报告生成器函数、分级器扩展（处理 100、0 和非法输入）。
 4. dart analyze 时出现 2 个告警，改掉后再次分析确认 No issues found，再跑一遍 dart run。
 5. 按指南做故意实验：在 null 上用 !，记录运行时报错。
-6. 让 TraeCode 出 5 道预测输出题，先手写答案再对答案，分歧处自己运行核实，记录存到 docs/ai_quiz_round1.md，做第三次提交。
-7. 截 dart analyze、dart run、git log 的全屏图放进报告。
+6. 让 TraeCode 出 5 道预测输出题，先手写答案再对答案，分歧处自己运行核实，记录存到 docs/ai_quiz_round1.md，并提交到仓库。
+7. 截 dart analyze、dart run、git log、GitHub 仓库首页、空断言报错和对拍记录的全屏图放进报告。
 
 ## 四、关键代码
 
@@ -74,8 +74,9 @@ String gradeOfV2(int score) {
 - dart analyze：No issues found!（见第八节图1），空安全没有编译告警。
 - dart run：全部输出正确（见第八节图2），包括 null、未填写、2，三个 enroll 调用结果，以及分级器 100 到 101 的八组结果。
 - 口头解释：?? 是“左边为 null 就用右边”；! 是“我保证它不是 null”，保证错了程序就崩，要少用。
-- 故意实验：对 null 用 !，运行报错 Null check operator used on a null value，和指南说法一致。
-- Git：至少 3 次提交（见第八节图3），提交说明按指南要求写。
+- 故意实验：对 null 用 !，运行报错 Null check operator used on a null value，和指南说法一致（见第八节图5）。
+- Git：一共 5 次提交（git log 见第八节图4）；仓库地址 https://github.com/langjinbuhuitou/lecture2，仓库首页见图3。
+- 对拍记录：5 道题（含 1 处分歧复核）已存入仓库 docs/ai_quiz_round1.md（见第八节图6）。
 
 ## 六、问题与调试
 
@@ -110,9 +111,21 @@ String gradeOfV2(int score) {
 
 ![dart run](screenshots/02_dart_run.png)
 
-图3（全屏截图）：Git 提交记录，一共 3 次提交。
+图3（全屏截图）：GitHub 上的 lecture2 仓库首页，地址栏是仓库地址，页面上能看到文件列表和 5 Commits。
+
+![github repo](screenshots/04_github.png)
+
+图4（全屏截图）：git --no-pager log --oneline 的输出，共 5 次提交，最新一次已推送到 origin/main。
 
 ![git log](screenshots/03_git_log.png)
+
+图5（全屏截图）：按指南做的故意实验，在 null 值上使用空断言 !，运行报 Unhandled exception: Null check operator used on a null value。
+
+![null check error](screenshots/05_null_error.png)
+
+图6（全屏截图）：仓库里的对拍记录 docs/ai_quiz_round1.md，每题都有题目、我的答案、AI 答案和复核结论。
+
+![quiz records](screenshots/06_quiz_records.png)
 
 ## 九、自评
 
@@ -121,7 +134,7 @@ String gradeOfV2(int score) {
 | dart_basics 完整复现 | 完成，三组示例加自主练习都在 bin 目录下 |
 | dart run 输出全部正确 | 完成，见截图 |
 | 空安全无编译告警 | 完成，dart analyze 无问题 |
-| Git 规范（至少 3 次提交） | 完成，3 次提交说明按指南写 |
+| Git 规范（至少 3 次提交） | 完成，5 次提交，提交说明均按指南写 |
 | 空安全改写并解释 | 完成，practice.dart 里有前后对照 |
 | 命名参数设计（三种调用） | 完成，buildReport 三种调用结果都正确 |
 | 分级器处理边界和非法输入 | 完成，100、0、-5、101 都验证过 |
